@@ -8,6 +8,7 @@ function searchCountry() {
   let countryPopulation = document.getElementById("countryPopulation");
   let countryLocation = document.getElementById("countryLocation");
   let countryTimezone = document.getElementById("countryTimezone");
+  let countryCurrency = document.getElementById("countryCurrency");
   let countryArea = document.getElementById("countryArea");
 
   if (!searchValue) {
@@ -27,6 +28,14 @@ function searchCountry() {
           countryLocation.innerText = obj.latlng;
           countryTimezone.innerText = obj.timezones;
           countryArea.innerText = obj.area;
+
+          let currencies = "";
+          for (let key in obj.currencies) {
+            currencies += `${obj.currencies[key].name} (${obj.currencies[key].symbol}) `;
+          }
+          countryCurrency.innerText = currencies;
+
+          
         });
       });
   }
